@@ -1,0 +1,20 @@
+.favoritesButton {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 60px;
+	aspect-ratio: 1;
+	border-radius: 50%;
+	border: none;
+	background-color: #f9f9f9;
+	flex-shrink: 0;
+
+	&:hover {
+		background-color: #fbd7b230;
+		cursor: pointer;
+	}
+
+	> img {
+		width: 50%;
+	}
+}
