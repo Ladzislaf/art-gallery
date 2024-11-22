@@ -1,15 +1,24 @@
-import styles from './ArtworkCard.module.scss';
 import { Artwork } from '../../utils/types';
 import FavoritesButton from '../ui/FavoritesButton';
 import ArtworkImage from '../ui/ArtworkImage';
+import { handleToggleFavorite } from '../../utils/functions';
+
+import styles from './ArtworkCard.module.scss';
 
 export default function MiniArtworkCard({
 	artwork,
-	onToggleFavourite,
+	onCardClick,
 }: {
 	artwork: Artwork | null;
-	onToggleFavourite?: (artworkId: number) => void;
+	onCardClick?: (id: number) => void;
 }) {
+	const handleCardClick = () => {
+		if (artwork !== null) {
+			handleToggleFavorite(artwork);
+			onCardClick?.(artwork.id);
+		}
+	};
+
 	return (
 		<div className={styles.miniCardContainer}>
 			<ArtworkImage imageId={artwork?.image_id} linkTo={`/details/${artwork?.id}`} />
@@ -24,7 +33,7 @@ export default function MiniArtworkCard({
 				)}
 			</span>
 
-			<FavoritesButton />
+			<FavoritesButton onClick={handleCardClick} />
 		</div>
 	);
 }

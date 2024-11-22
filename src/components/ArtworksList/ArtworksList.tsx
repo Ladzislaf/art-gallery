@@ -7,11 +7,18 @@ import styles from './ArtworksList.module.scss';
 type ArtworksListProps = {
 	artworks: Artwork[] | null;
 	isLoading: boolean;
-	isError: boolean;
+	isError?: boolean;
 	cardType?: 'full' | 'mini';
+	onCardClick?: (id: number) => void;
 };
 
-export default function ArtworksList({ artworks, isLoading, isError, cardType = 'full' }: ArtworksListProps) {
+export default function ArtworksList({
+	artworks,
+	isLoading,
+	isError,
+	cardType = 'full',
+	onCardClick,
+}: ArtworksListProps) {
 	if (isError) {
 		return <h1>Something went wrong</h1>;
 	}
@@ -30,7 +37,7 @@ export default function ArtworksList({ artworks, isLoading, isError, cardType = 
 		<div className={styles.container}>
 			{artworks?.map((artwork: Artwork) => {
 				return cardType === 'mini' ? (
-					<MiniArtworkCard artwork={artwork} key={artwork.id} />
+					<MiniArtworkCard artwork={artwork} key={artwork.id} onCardClick={onCardClick} />
 				) : (
 					<ArtworkCard artwork={artwork} key={artwork.id} />
 				);

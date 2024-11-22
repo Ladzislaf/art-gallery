@@ -5,11 +5,13 @@ import { handleToggleFavorite } from '../../utils/functions';
 
 import styles from './ArtworkCard.module.scss';
 
-export default function DetailedArtworkCard({ artwork }: { artwork?: Artwork }) {
+export default function DetailedArtworkCard({ artwork }: { artwork: Artwork | null }) {
 	return (
 		<div className={styles.detailsContainer}>
 			<span>
-				{artwork?.id && <FavoritesButton onClick={() => handleToggleFavorite(artwork.id)} />}
+				{artwork?.id && (
+					<FavoritesButton onClick={() => (artwork === null ? undefined : handleToggleFavorite(artwork))} />
+				)}
 				<ArtworkImage imageId={artwork?.image_id} />
 			</span>
 			<div>

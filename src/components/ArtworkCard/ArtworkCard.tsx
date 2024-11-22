@@ -29,7 +29,7 @@ export default function ArtworkCard({ artwork }: { artwork: Artwork | null }) {
 					</p>
 				</div>
 
-				<FavoritesButton onClick={() => (artwork === null ? undefined : handleToggleFavorite(artwork.id))} />
+				<FavoritesButton onClick={() => (artwork === null ? undefined : handleToggleFavorite(artwork))} />
 			</div>
 		</div>
 	);
