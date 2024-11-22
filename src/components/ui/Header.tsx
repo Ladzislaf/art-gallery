@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
 
+import styles from './styles.module.scss';
+
 import museumLogo from '../../assets/museum-logo-dark.svg';
 import bookmark from '../../assets/bookmark.svg';
-
-import styles from './styles.module.scss';
 
 export default function Header() {
 	return (

@@ -1,6 +1,7 @@
-import styles from './PaginationControls.module.scss';
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
+
+import styles from './PaginationControls.module.scss';
 
 type PaginationControlsProps = {
 	itemsCount: number;

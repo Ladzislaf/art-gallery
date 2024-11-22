@@ -1,14 +1,15 @@
-import { Artwork } from '../../utils/types';
+import styles from './ArtworkCard.module.scss';
+
 import FavoritesButton from '../ui/FavoritesButton';
 import ArtworkImage from '../ui/ArtworkImage';
-import { handleToggleFavorite } from '../../utils/functions';
 
-import styles from './ArtworkCard.module.scss';
+import { handleToggleFavorite } from '../../utils/functions';
+import { Artwork } from '../../utils/types';
 
 export default function ArtworkCard({ artwork }: { artwork: Artwork | null }) {
 	if (artwork === null) {
 		artwork = {
-			id: 0,
+			id: -1,
 			title: 'Title',
 			artist_title: 'Artist',
 			is_public_domain: true,
@@ -29,7 +30,7 @@ export default function ArtworkCard({ artwork }: { artwork: Artwork | null }) {
 					</p>
 				</div>
 
-				<FavoritesButton onClick={() => (artwork === null ? undefined : handleToggleFavorite(artwork.id))} />
+				<FavoritesButton onClick={() => handleToggleFavorite(artwork)} />
 			</div>
 		</div>
 	);

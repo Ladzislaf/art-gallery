@@ -1,8 +1,10 @@
 import { useSearchParams } from 'react-router-dom';
+
 import ArtworksList from '../components/ArtworksList/ArtworksList';
-import useArtworks from '../hooks/useArtworks';
 import PaginationControls from '../components/PaginationControls/PaginationControls';
 import Article from '../components/ui/Article';
+
+import useArtworks from '../hooks/useArtworks';
 
 const itemsPerPage = 3;
 

@@ -1,17 +1,25 @@
-import { Artwork } from '../../utils/types';
+import styles from './ArtworksList.module.scss';
+
 import ArtworkCard from '../ArtworkCard/ArtworkCard';
 import MiniArtworkCard from '../ArtworkCard/MiniArtworkCard';
 
-import styles from './ArtworksList.module.scss';
+import { Artwork } from '../../utils/types';
 
 type ArtworksListProps = {
 	artworks: Artwork[] | null;
 	isLoading: boolean;
-	isError: boolean;
+	isError?: boolean;
 	cardType?: 'full' | 'mini';
+	onCardClick?: (id: number) => void;
 };
 
-export default function ArtworksList({ artworks, isLoading, isError, cardType = 'full' }: ArtworksListProps) {
+export default function ArtworksList({
+	artworks,
+	isLoading,
+	isError,
+	cardType = 'full',
+	onCardClick,
+}: ArtworksListProps) {
 	if (isError) {
 		return <h1>Something went wrong</h1>;
 	}
@@ -30,7 +38,7 @@ export default function ArtworksList({ artworks, isLoading, isError, cardType = 
 		<div className={styles.container}>
 			{artworks?.map((artwork: Artwork) => {
 				return cardType === 'mini' ? (
-					<MiniArtworkCard artwork={artwork} key={artwork.id} />
+					<MiniArtworkCard artwork={artwork} key={artwork.id} onCardClick={onCardClick} />
 				) : (
 					<ArtworkCard artwork={artwork} key={artwork.id} />
 				);
