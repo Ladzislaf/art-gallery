@@ -1,5 +1,6 @@
 import ArtworksList from '../components/ArtworksList/ArtworksList';
 import Article from '../components/ui/Article';
+
 import useFavoriteArtworks from '../hooks/useFavoriteArtworks';
 
 export function Favoritespage() {

@@ -1,9 +1,14 @@
-export const handleToggleFavorite = (artworkId: number) => {
-	const favorites: number[] = JSON.parse(sessionStorage.getItem('favorites') || '[]');
+import { Artwork } from './types';
 
-	if (favorites.includes(artworkId)) {
-		sessionStorage.setItem('favorites', JSON.stringify(favorites.filter((id) => id !== artworkId)));
+export const handleToggleFavorite = (artwork: Artwork | null) => {
+	if (artwork === null || artwork.id === -1) return;
+
+	const favorites: Artwork[] = JSON.parse(sessionStorage.getItem('favorites') || '[]');
+	const existingIndex = favorites.findIndex((fav) => fav.id === artwork.id);
+
+	if (existingIndex === -1) {
+		sessionStorage.setItem('favorites', JSON.stringify([...favorites, artwork]));
 	} else {
-		sessionStorage.setItem('favorites', JSON.stringify([...favorites, artworkId]));
+		sessionStorage.setItem('favorites', JSON.stringify(favorites.filter((_, index) => index !== existingIndex)));
 	}
 };

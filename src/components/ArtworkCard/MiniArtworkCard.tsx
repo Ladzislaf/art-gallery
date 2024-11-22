@@ -1,9 +1,10 @@
-import { Artwork } from '../../utils/types';
+import styles from './ArtworkCard.module.scss';
+
 import FavoritesButton from '../ui/FavoritesButton';
 import ArtworkImage from '../ui/ArtworkImage';
-import { handleToggleFavorite } from '../../utils/functions';
 
-import styles from './ArtworkCard.module.scss';
+import { handleToggleFavorite } from '../../utils/functions';
+import { Artwork } from '../../utils/types';
 
 export default function MiniArtworkCard({
 	artwork,

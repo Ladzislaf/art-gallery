@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
 
-import artPlaceholder from '../../assets/art-placeholder.svg';
-
 import styles from './styles.module.scss';
+
+import artPlaceholder from '../../assets/art-placeholder.svg';
 
 export default function ArtworkImage({ imageId, linkTo }: { imageId?: string; linkTo?: string }) {
 	return (
