@@ -1,7 +1,9 @@
-import styles from './Footer.module.scss';
+import { Link } from 'react-router-dom';
+
 import museumLogo from '../../assets/museum-logo-light.svg';
 import modsenLogo from '../../assets/modsen-logo.svg';
-import { Link } from 'react-router-dom';
+
+import styles from './styles.module.scss';
 
 export default function Footer() {
 	return (
