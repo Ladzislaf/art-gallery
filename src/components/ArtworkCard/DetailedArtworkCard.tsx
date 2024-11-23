@@ -1,10 +1,12 @@
+import { useContext } from 'react';
+
 import styles from './ArtworkCard.module.scss';
 
 import FavoritesButton from '../ui/FavoritesButton';
 import ArtworkImage from '../ui/ArtworkImage';
 
 import { Artwork } from '../../utils/types';
-import { handleToggleFavorite } from '../../utils/functions';
+import FavoritesContext, { FavoritesContextType } from '../../utils/FavoritesContext';
 
 type DetailedArtworkCardProps = {
 	artwork: Artwork | null;
@@ -13,26 +15,23 @@ type DetailedArtworkCardProps = {
 };
 
 export default function DetailedArtworkCard({ artwork, isLoading, isError }: DetailedArtworkCardProps) {
+	const { favoriteIds, addFavorite, removeFavorite } = useContext(FavoritesContext) as FavoritesContextType;
+
 	if (isError) {
 		return <h1>Something went wrong</h1>;
 	}
 
-	if (isLoading) {
-		artwork = {
-			id: -1,
-			title: 'Loading...',
-			image_id: '',
-			artist_title: 'Loading...',
-			is_public_domain: true,
-			date_display: 'Loading...',
-			artist_display: 'Loading...',
-		};
+	if (isLoading || !artwork) {
+		return <h1>Loading...</h1>;
 	}
 
 	return (
 		<div className={styles.detailsContainer}>
 			<span>
-				<FavoritesButton onClick={() => handleToggleFavorite(artwork)} />
+				<FavoritesButton
+					onClick={favoriteIds.includes(artwork.id) ? () => removeFavorite(artwork) : () => addFavorite(artwork)}
+					isFavorite={favoriteIds.includes(artwork.id)}
+				/>
 				<ArtworkImage imageId={artwork?.image_id} />
 			</span>
 

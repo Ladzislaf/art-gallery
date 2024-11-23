@@ -10,16 +10,9 @@ type ArtworksListProps = {
 	isLoading: boolean;
 	isError?: boolean;
 	cardType?: 'full' | 'mini';
-	onCardClick?: (id: number) => void;
 };
 
-export default function ArtworksList({
-	artworks,
-	isLoading,
-	isError,
-	cardType = 'full',
-	onCardClick,
-}: ArtworksListProps) {
+export default function ArtworksList({ artworks, isLoading, isError, cardType = 'full' }: ArtworksListProps) {
 	if (isError) {
 		return <h1>Something went wrong</h1>;
 	}
@@ -36,9 +29,11 @@ export default function ArtworksList({
 
 	return (
 		<div className={styles.container}>
+			{artworks?.length === 0 && <h2 style={{ margin: 'auto' }}>Not found</h2>}
+
 			{artworks?.map((artwork: Artwork) => {
 				return cardType === 'mini' ? (
-					<MiniArtworkCard artwork={artwork} key={artwork.id} onCardClick={onCardClick} />
+					<MiniArtworkCard artwork={artwork} key={artwork.id} />
 				) : (
 					<ArtworkCard artwork={artwork} key={artwork.id} />
 				);
