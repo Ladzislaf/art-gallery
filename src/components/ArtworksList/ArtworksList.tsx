@@ -2,6 +2,8 @@ import styles from '@components/ArtworksList/ArtworksList.module.scss';
 
 import ArtworkCard from '@components/ArtworkCard/ArtworkCard';
 import MiniArtworkCard from '@components/ArtworkCard/MiniArtworkCard';
+import ArtworkCardSkeleton from '@components/ArtworkCard/ArtworkCardSkeleton';
+import MiniArtworkCardSkeleton from '@/components/ArtworkCard/MiniArtworkCardSkeleton';
 
 import { Artwork } from '@utils/types';
 
@@ -20,16 +22,21 @@ export default function ArtworksList({ artworks, isLoading, isError, cardType = 
 	if (isLoading) {
 		return (
 			<div className={styles.container}>
-				{cardType === 'mini' ? <MiniArtworkCard artwork={null} /> : <ArtworkCard artwork={null} />}
-				{cardType === 'mini' ? <MiniArtworkCard artwork={null} /> : <ArtworkCard artwork={null} />}
-				{cardType === 'mini' ? <MiniArtworkCard artwork={null} /> : <ArtworkCard artwork={null} />}
+				{cardType === 'mini' ? <MiniArtworkCardSkeleton /> : <ArtworkCardSkeleton />}
+				{cardType === 'mini' ? <MiniArtworkCardSkeleton /> : <ArtworkCardSkeleton />}
+				{cardType === 'mini' ? <MiniArtworkCardSkeleton /> : <ArtworkCardSkeleton />}
 			</div>
 		);
 	}
 
 	return (
 		<div className={styles.container}>
-			{artworks?.length === 0 && <h2 style={{ margin: 'auto' }}>Not found</h2>}
+			{artworks?.length === 0 &&
+				(cardType === 'mini' ? (
+					<MiniArtworkCardSkeleton message="Artworks not found" />
+				) : (
+					<ArtworkCardSkeleton message="Artworks not found" />
+				))}
 
 			{artworks?.map((artwork: Artwork) => {
 				return cardType === 'mini' ? (

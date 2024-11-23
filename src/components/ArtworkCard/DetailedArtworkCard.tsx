@@ -4,6 +4,7 @@ import styles from '@components/ArtworkCard/ArtworkCard.module.scss';
 
 import FavoritesButton from '@components/ui/FavoritesButton';
 import ArtworkImage from '@components/ui/ArtworkImage';
+import DetailedArtworkCardSkeleton from '@components/ArtworkCard/DetailedArtworkCardSkeleton';
 
 import { Artwork } from '@utils/types';
 import FavoritesContext, { FavoritesContextType } from '@utils/FavoritesContext';
@@ -18,11 +19,11 @@ export default function DetailedArtworkCard({ artwork, isLoading, isError }: Det
 	const { favoriteIds, addFavorite, removeFavorite } = useContext(FavoritesContext) as FavoritesContextType;
 
 	if (isError) {
-		return <h1>Something went wrong</h1>;
+		return <DetailedArtworkCardSkeleton message="Something went wrong" />;
 	}
 
 	if (isLoading || !artwork) {
-		return <h1>Loading...</h1>;
+		return <DetailedArtworkCardSkeleton />;
 	}
 
 	return (
