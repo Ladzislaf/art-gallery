@@ -1,27 +1,28 @@
 import { useEffect, useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
 
 import styles from '@components/PaginationControls/PaginationControls.module.scss';
 
 type PaginationControlsProps = {
 	itemsCount: number;
 	itemsPerPage: number;
+	page: number;
+	setPage: (page: number) => void;
 	isDisabled: boolean;
 };
 
-export default function PaginationControls({ itemsCount, itemsPerPage, isDisabled }: PaginationControlsProps) {
+function PaginationControls({ itemsCount, itemsPerPage, page, setPage, isDisabled }: PaginationControlsProps) {
 	const [pages, setPages] = useState<number[]>([1, 2, 3, 4, 5]);
-	const [searchParams, setSearchParams] = useSearchParams();
-	const page = parseInt(searchParams.get('page') || '1');
 
 	useEffect(() => {
 		const pagesCount = Math.ceil(itemsCount / itemsPerPage);
 
-		if (!Number.isInteger(page) || page > pagesCount) return;
+		if (!Number.isInteger(page) || page < 1 || page > pagesCount) return;
 
-		if (page < 3) {
+		if (pagesCount <= 5) {
+			setPages(Array.from({ length: pagesCount }, (_, i) => i + 1));
+		} else if (page < 3) {
 			setPages([1, 2, 3, 4, 5]);
-		} else if (page > itemsCount / itemsPerPage - 3) {
+		} else if (page > pagesCount - 2) {
 			setPages([pagesCount - 4, pagesCount - 3, pagesCount - 2, pagesCount - 1, pagesCount]);
 		} else {
 			setPages([page - 2, page - 1, page, page + 1, page + 2]);
@@ -34,9 +35,7 @@ export default function PaginationControls({ itemsCount, itemsPerPage, isDisable
 				<button
 					key={p}
 					className={p === page ? styles.activePage : ''}
-					onClick={() => {
-						setSearchParams({ page: `${p}` });
-					}}
+					onClick={() => setPage(p)}
 					disabled={isDisabled}
 				>
 					{p}
@@ -45,3 +44,5 @@ export default function PaginationControls({ itemsCount, itemsPerPage, isDisable
 		</div>
 	);
 }
+
+export default PaginationControls;
