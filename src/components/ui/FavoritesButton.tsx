@@ -7,7 +7,7 @@ export default function FavoritesButton({ onClick, isFavorite }: { onClick?: () 
 
 	return (
 		<button className={styles.favoritesButton} style={{ backgroundColor: bgColor }} onClick={onClick}>
-			<img src={bookmark} alt='bookmark logo' />
+			<img src={bookmark} alt="bookmark logo" />
 		</button>
 	);
 }

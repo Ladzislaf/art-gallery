@@ -13,9 +13,10 @@ export default function PaginationControls({ itemsCount, itemsPerPage, isDisable
 	const [pages, setPages] = useState<number[]>([1, 2, 3, 4, 5]);
 	const [searchParams, setSearchParams] = useSearchParams();
 	const page = parseInt(searchParams.get('page') || '1');
-	const pagesCount = Math.ceil(itemsCount / itemsPerPage);
 
 	useEffect(() => {
+		const pagesCount = Math.ceil(itemsCount / itemsPerPage);
+
 		if (!Number.isInteger(page) || page > pagesCount) return;
 
 		if (page < 3) {
@@ -25,7 +26,7 @@ export default function PaginationControls({ itemsCount, itemsPerPage, isDisable
 		} else {
 			setPages([page - 2, page - 1, page, page + 1, page + 2]);
 		}
-	}, [page]);
+	}, [page, itemsCount, itemsPerPage]);
 
 	return (
 		<div className={styles.container}>

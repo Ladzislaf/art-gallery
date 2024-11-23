@@ -16,7 +16,9 @@ export function FavoritesContextProvider({ children }: { children: React.ReactNo
 
 	useEffect(() => {
 		const favoritesStorage = JSON.parse(sessionStorage.getItem('favorites') || '[]');
-		favoritesStorage.length > 0 && setFavoriteIds(favoritesStorage.map((fav: Artwork) => fav.id));
+		if (favoritesStorage.length > 0) {
+			setFavoriteIds(favoritesStorage.map((fav: Artwork) => fav.id));
+		}
 	}, []);
 
 	const addFavorite = useCallback((artwork: Artwork) => {

@@ -14,8 +14,8 @@ export function Favoritespage() {
 		<>
 			<h1>Here are your Favorites</h1>
 
-			<Article header='Your favorites list' subheader='Saved by you'>
-				<ArtworksList artworks={favorites} isLoading={isLoading} cardType='mini' />
+			<Article header="Your favorites list" subheader="Saved by you">
+				<ArtworksList artworks={favorites} isLoading={isLoading} cardType="mini" />
 			</Article>
 		</>
 	);

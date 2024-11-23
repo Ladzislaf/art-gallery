@@ -15,11 +15,11 @@ function App() {
 			<main>
 				<FavoritesContextProvider>
 					<Routes>
-						<Route path='/' element={<Homepage />} />
-						<Route path='/favorites' element={<Favoritespage />} />
-						<Route path='/details/:id' element={<Detailspage />} />
+						<Route path="/" element={<Homepage />} />
+						<Route path="/favorites" element={<Favoritespage />} />
+						<Route path="/details/:id" element={<Detailspage />} />
 						{/* Todo NotFound */}
-						<Route path='*' element={<Homepage />} />
+						<Route path="*" element={<Homepage />} />
 					</Routes>
 				</FavoritesContextProvider>
 			</main>

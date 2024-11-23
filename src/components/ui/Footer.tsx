@@ -10,9 +10,9 @@ export default function Footer() {
 		<header className={styles.footer}>
 			<div>
 				<Link to={'/'}>
-					<img src={museumLogo} alt='museum logo' />
+					<img src={museumLogo} alt="museum logo" />
 				</Link>
-				<img src={modsenLogo} alt='modsen logo' />
+				<img src={modsenLogo} alt="modsen logo" />
 			</div>
 		</header>
 	);

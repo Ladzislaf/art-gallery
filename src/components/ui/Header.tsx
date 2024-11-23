@@ -10,11 +10,11 @@ export default function Header() {
 		<header className={styles.header}>
 			<div>
 				<Link to={'/'}>
-					<img src={museumLogo} alt='museum logo' />
+					<img src={museumLogo} alt="museum logo" />
 				</Link>
 				<span>
-					<Link to='/favorites'>
-						<img src={bookmark} alt='bookmark logo' /> Your favorites
+					<Link to="/favorites">
+						<img src={bookmark} alt="bookmark logo" /> Your favorites
 					</Link>
 				</span>
 			</div>
