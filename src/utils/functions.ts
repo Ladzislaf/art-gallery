@@ -1,6 +1,6 @@
 import { Artwork } from './types';
 
-export const handleToggleFavorite = (artwork: Artwork | null) => {
+export const toggleFavoriteStorage = (artwork: Artwork | null) => {
 	if (artwork === null || artwork.id === -1) return;
 
 	const favorites: Artwork[] = JSON.parse(sessionStorage.getItem('favorites') || '[]');
