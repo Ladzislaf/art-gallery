@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
 
-import styles from './styles.module.scss';
+import styles from '@components/ui/styles.module.scss';
 
-import artPlaceholder from '../../assets/art-placeholder.svg';
+import artPlaceholder from '@assets/art-placeholder.svg';
 
 export default function ArtworkImage({ imageId, linkTo }: { imageId?: string; linkTo?: string }) {
 	return (
@@ -11,10 +11,10 @@ export default function ArtworkImage({ imageId, linkTo }: { imageId?: string; li
 				<img
 					className={styles.artworkImg}
 					src={`https://www.artic.edu/iiif/2/${imageId}/full/843,/0/default.jpg`}
-					alt='artwork image'
+					alt="artwork image"
 				/>
 			) : (
-				<img className={styles.placeholderImg} src={artPlaceholder} alt='artwork placeholder image' />
+				<img className={styles.placeholderImg} src={artPlaceholder} alt="artwork placeholder image" />
 			)}
 		</Link>
 	);

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-import { Artwork } from '../utils/types';
+import { Artwork } from '@utils/types';
 
 export default function useFavoriteArtworks(favoritesIds: number[]) {
 	const [favorites, setFavorites] = useState<Artwork[] | null>(null);

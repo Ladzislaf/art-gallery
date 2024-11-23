@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Artwork } from '../utils/types';
+import { Artwork } from '@utils/types';
 
 const API_URL = 'https://api.artic.edu/api/v1/artworks/search';
 const body = {
@@ -36,7 +36,6 @@ export default function useArtworks(itemsPerPage: number, page: number) {
 		})
 			.then((res) => res.json())
 			.then((json) => {
-				console.log(json);
 				if (!json.error) {
 					setArtworks(json.data);
 					setIsLoading(false);
