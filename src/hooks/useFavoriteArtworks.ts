@@ -1,20 +1,17 @@
 import { useEffect, useState } from 'react';
+
 import { Artwork } from '../utils/types';
 
-export default function useFavoriteArtworks() {
+export default function useFavoriteArtworks(favoritesIds: number[]) {
 	const [favorites, setFavorites] = useState<Artwork[] | null>(null);
 	const [isLoading, setIsLoading] = useState(true);
 
 	useEffect(() => {
 		setIsLoading(true);
 		const favoritesStorage = JSON.parse(sessionStorage.getItem('favorites') || '[]');
-		favoritesStorage.length > 0 && setFavorites(favoritesStorage);
+		setFavorites(favoritesStorage);
 		setIsLoading(false);
-	}, []);
+	}, [favoritesIds]);
 
-	const removeFavorite = (id: number) => {
-		setFavorites((prev) => (prev === null ? null : prev.filter((fav) => fav.id !== id)));
-	};
-
-	return { favorites, isLoading, removeFavorite };
+	return { favorites, isLoading };
 }
