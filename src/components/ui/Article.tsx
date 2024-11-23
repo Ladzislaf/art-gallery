@@ -1,4 +1,4 @@
-import styles from './styles.module.scss';
+import styles from '@components/ui/styles.module.scss';
 
 type ArticleProps = {
 	header: string;

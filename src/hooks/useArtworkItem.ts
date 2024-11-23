@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Artwork } from '../utils/types';
+import { Artwork } from '@utils/types';
 
 const body = {
 	fields: ['id', 'title', 'image_id', 'artist_title', 'is_public_domain', 'date_display', 'artist_display'],
@@ -19,7 +19,6 @@ export default function useArtworkItem(id: number) {
 		})
 			.then((res) => res.json())
 			.then((json) => {
-				console.log(json);
 				if (!json.error) {
 					setArtwork(json.data);
 					setIsLoading(false);

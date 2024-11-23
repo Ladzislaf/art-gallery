@@ -1,12 +1,12 @@
 import { useContext } from 'react';
 
-import styles from './ArtworkCard.module.scss';
+import styles from '@components/ArtworkCard/ArtworkCard.module.scss';
 
-import FavoritesButton from '../ui/FavoritesButton';
-import ArtworkImage from '../ui/ArtworkImage';
+import FavoritesButton from '@components/ui/FavoritesButton';
+import ArtworkImage from '@components/ui/ArtworkImage';
 
-import { Artwork } from '../../utils/types';
-import FavoritesContext, { FavoritesContextType } from '../../utils/FavoritesContext';
+import { Artwork } from '@utils/types';
+import FavoritesContext, { FavoritesContextType } from '@utils/FavoritesContext';
 
 export default function ArtworkCard({ artwork }: { artwork: Artwork | null }) {
 	const { favoriteIds, addFavorite, removeFavorite } = useContext(FavoritesContext) as FavoritesContextType;

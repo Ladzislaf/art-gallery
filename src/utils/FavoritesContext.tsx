@@ -1,7 +1,7 @@
 import { createContext, useCallback, useEffect, useState } from 'react';
 
-import { Artwork } from './types';
-import { toggleFavoriteStorage } from './functions';
+import { Artwork } from '@utils/types';
+import { toggleFavoriteStorage } from '@utils/functions';
 
 export type FavoritesContextType = {
 	favoriteIds: number[];
@@ -16,7 +16,9 @@ export function FavoritesContextProvider({ children }: { children: React.ReactNo
 
 	useEffect(() => {
 		const favoritesStorage = JSON.parse(sessionStorage.getItem('favorites') || '[]');
-		favoritesStorage.length > 0 && setFavoriteIds(favoritesStorage.map((fav: Artwork) => fav.id));
+		if (favoritesStorage.length > 0) {
+			setFavoriteIds(favoritesStorage.map((fav: Artwork) => fav.id));
+		}
 	}, []);
 
 	const addFavorite = useCallback((artwork: Artwork) => {

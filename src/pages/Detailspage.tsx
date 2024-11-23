@@ -1,9 +1,9 @@
 import { useParams } from 'react-router-dom';
 
-import DetailedArtworkCard from '../components/ArtworkCard/DetailedArtworkCard';
-import Article from '../components/ui/Article';
+import DetailedArtworkCard from '@components/ArtworkCard/DetailedArtworkCard';
+import Article from '@components/ui/Article';
 
-import useArtworkItem from '../hooks/useArtworkItem';
+import useArtworkItem from '@hooks/useArtworkItem';
 
 export function Detailspage() {
 	const { id } = useParams();
