@@ -24,12 +24,19 @@
 .header {
 	background-color: #282828;
 
-	span > a {
-		color: white;
+	nav {
+		display: flex;
+		gap: 2rem;
 
-		> img {
-			width: 2rem;
-			vertical-align: middle;
+		> a {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			color: white;
+
+			> img {
+				height: 100%;
+			}
 		}
 	}
 }
