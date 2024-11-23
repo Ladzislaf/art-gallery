@@ -1,6 +1,6 @@
-import styles from './styles.module.scss';
+import styles from '@components/ui/styles.module.scss';
 
-import bookmark from '../../assets/bookmark.svg';
+import bookmark from '@assets/bookmark.svg';
 
 export default function FavoritesButton({ onClick, isFavorite }: { onClick?: () => void; isFavorite?: boolean }) {
 	const bgColor = isFavorite ? '#fbd7b230' : '#f9f9f9';

@@ -1,7 +1,7 @@
 import { createContext, useCallback, useEffect, useState } from 'react';
 
-import { Artwork } from './types';
-import { toggleFavoriteStorage } from './functions';
+import { Artwork } from '@utils/types';
+import { toggleFavoriteStorage } from '@utils/functions';
 
 export type FavoritesContextType = {
 	favoriteIds: number[];

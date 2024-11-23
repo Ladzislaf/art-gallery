@@ -1,4 +1,4 @@
-import { Artwork } from './types';
+import { Artwork } from '@utils/types';
 
 export const toggleFavoriteStorage = (artwork: Artwork | null) => {
 	if (artwork === null || artwork.id === -1) return;

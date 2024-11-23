@@ -1,9 +1,9 @@
-import styles from './ArtworksList.module.scss';
+import styles from '@components/ArtworksList/ArtworksList.module.scss';
 
-import ArtworkCard from '../ArtworkCard/ArtworkCard';
-import MiniArtworkCard from '../ArtworkCard/MiniArtworkCard';
+import ArtworkCard from '@components/ArtworkCard/ArtworkCard';
+import MiniArtworkCard from '@components/ArtworkCard/MiniArtworkCard';
 
-import { Artwork } from '../../utils/types';
+import { Artwork } from '@utils/types';
 
 type ArtworksListProps = {
 	artworks: Artwork[] | null;

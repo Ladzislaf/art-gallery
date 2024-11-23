@@ -1,10 +1,10 @@
 import { Link, useLocation } from 'react-router-dom';
 
-import styles from './styles.module.scss';
+import styles from '@components/ui/styles.module.scss';
 
-import museumLogo from '../../assets/museum-logo-dark.svg';
-import bookmark from '../../assets/bookmark.svg';
-import home from '../../assets/home.svg';
+import museumLogo from '@assets/museum-logo-dark.svg';
+import bookmark from '@assets/bookmark.svg';
+import home from '@assets/home.svg';
 
 export default function Header() {
 	const location = useLocation();

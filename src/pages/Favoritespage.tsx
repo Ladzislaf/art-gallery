@@ -1,10 +1,10 @@
 import { useContext } from 'react';
 
-import ArtworksList from '../components/ArtworksList/ArtworksList';
-import Article from '../components/ui/Article';
+import ArtworksList from '@components/ArtworksList/ArtworksList';
+import Article from '@components/ui/Article';
 
-import useFavoriteArtworks from '../hooks/useFavoriteArtworks';
-import FavoritesContext, { FavoritesContextType } from '../utils/FavoritesContext';
+import useFavoriteArtworks from '@hooks/useFavoriteArtworks';
+import FavoritesContext, { FavoritesContextType } from '@utils/FavoritesContext';
 
 export function Favoritespage() {
 	const { favoriteIds } = useContext(FavoritesContext) as FavoritesContextType;
