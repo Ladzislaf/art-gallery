@@ -16,8 +16,8 @@ export default function MiniArtworkCard({ artwork }: { artwork: Artwork }) {
 			<ArtworkImage imageId={artwork?.image_id} linkTo={`/details/${artwork?.id}`} />
 
 			<span>
-				<p>{artwork?.title}</p>
-				<p className={styles.artist}>{artwork?.artist_title}</p>
+				<p>{artwork?.title || 'Unknown Title'}</p>
+				<p className={styles.artist}>{artwork?.artist_title || 'Unknown Artist'}</p>
 				{artwork?.is_public_domain !== undefined && (
 					<p>
 						<strong>{artwork.is_public_domain ? 'Public' : 'Private'}</strong>

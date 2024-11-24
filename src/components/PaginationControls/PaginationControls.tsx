@@ -14,7 +14,7 @@ function PaginationControls({ itemsCount, itemsPerPage, page, setPage, isDisable
 	const [pages, setPages] = useState<number[]>([1, 2, 3, 4, 5]);
 
 	useEffect(() => {
-		const pagesCount = Math.ceil(itemsCount / itemsPerPage);
+		const pagesCount = Math.ceil(itemsCount / itemsPerPage) || 1;
 
 		if (!Number.isInteger(page) || page < 1 || page > pagesCount) return;
 
