@@ -16,7 +16,15 @@ type ArtworksListProps = {
 
 export default function ArtworksList({ artworks, isLoading, isError, cardType = 'full' }: ArtworksListProps) {
 	if (isError) {
-		return <h1>Something went wrong</h1>;
+		return (
+			<div className={styles.container}>
+				{cardType === 'mini' ? (
+					<MiniArtworkCardSkeleton message="Something went wrong" />
+				) : (
+					<ArtworkCardSkeleton message="Something went wrong" />
+				)}
+			</div>
+		);
 	}
 
 	if (isLoading) {
