@@ -6,7 +6,7 @@ import artPlaceholder from '@assets/art-placeholder.svg';
 
 export default function ArtworkImage({ imageId, linkTo }: { imageId?: string; linkTo?: string }) {
 	return (
-		<Link to={linkTo || '#'} className={imageId ? styles.artworkImage : styles.artworkImagePlaceholder}>
+		<Link to={linkTo || '#'} className={styles.artworkImage}>
 			{imageId ? (
 				<img
 					className={styles.artworkImg}
