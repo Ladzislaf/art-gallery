@@ -21,13 +21,15 @@ export default function useArtworkItem(id: number) {
 			.then((json) => {
 				if (!json.error) {
 					setArtwork(json.data);
-					setIsLoading(false);
 				} else {
 					setIsError(true);
 				}
 			})
 			.catch(() => {
 				setIsError(true);
+			})
+			.finally(() => {
+				setIsLoading(false);
 			});
 	}, [id]);
 
