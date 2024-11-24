@@ -7,13 +7,15 @@ import modsenLogo from '@assets/modsen-logo.svg';
 
 export default function Footer() {
 	return (
-		<header className={styles.footer}>
+		<footer className={styles.footer}>
 			<div>
 				<Link to={'/'}>
 					<img src={museumLogo} alt="museum logo" />
 				</Link>
-				<img src={modsenLogo} alt="modsen logo" />
+				<Link to={'https://www.modsen-software.com'} target="_blank">
+					<img src={modsenLogo} alt="modsen logo" />
+				</Link>
 			</div>
-		</header>
+		</footer>
 	);
 }
