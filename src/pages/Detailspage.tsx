@@ -11,7 +11,7 @@ export function Detailspage() {
 
 	return (
 		<>
-			<Article header={`About ${artwork?.artist_title || 'Artwork'}`}>
+			<Article header={`About ${artwork?.title || 'Artwork'}`}>
 				<DetailedArtworkCard artwork={artwork} isLoading={isLoading} isError={isError} />
 			</Article>
 		</>
