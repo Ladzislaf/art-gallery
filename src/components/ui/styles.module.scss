@@ -10,12 +10,15 @@
 		width: 70%;
 		height: 100%;
 		margin: auto;
+		gap: 0.5rem;
 
 		> a {
 			height: 60%;
+			max-width: 50%;
 
 			> img {
 				height: 100%;
+				width: 100%;
 			}
 		}
 	}
@@ -38,6 +41,10 @@
 				height: 100%;
 			}
 		}
+	}
+
+	button {
+		display: none;
 	}
 }
 
@@ -64,8 +71,7 @@
 	}
 }
 
-.artworkImage,
-.artworkImagePlaceholder {
+.artworkImage {
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -81,10 +87,6 @@
 			height: 50%;
 		}
 	}
-}
-
-.artworkImagePlaceholder {
-	border: 1px solid #f17900;
 }
 
 .favoritesButton {
@@ -103,5 +105,63 @@
 
 	> img {
 		width: 50%;
+	}
+}
+
+@media (max-width: 768px) {
+	.footer > div,
+	.header > div {
+		width: 90%;
+	}
+}
+
+@media (max-width: 360px) {
+	.footer,
+	.header {
+		height: 4rem;
+
+		> div {
+			width: 90%;
+		}
+	}
+
+	.header {
+		nav {
+			position: fixed;
+			z-index: 10;
+			top: 0;
+			left: -60%;
+			padding: 2rem;
+			flex-direction: column;
+			align-items: center;
+			height: 100%;
+			width: 60%;
+			background-color: #f9f9f9;
+			gap: 1rem;
+			transition: transform 0.4s ease-in-out;
+
+			&.active {
+				transform: translateX(100%);
+				box-shadow: 0 0 4px 4px #00000050;
+			}
+
+			> a {
+				color: #282828;
+				width: 90%;
+
+				> img {
+					height: 100%;
+				}
+			}
+		}
+
+		button {
+			display: block;
+			font-family: inherit;
+			padding: 0.5rem;
+			border-radius: 1rem;
+			border: none;
+			font-weight: bold;
+		}
 	}
 }

@@ -88,11 +88,11 @@
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
+	gap: 2rem;
 
 	> span {
 		position: relative;
 		width: 40%;
-		margin-right: 5%;
 
 		> button {
 			position: absolute;
@@ -122,6 +122,19 @@
 
 		h2 {
 			padding-bottom: 2%;
+		}
+	}
+}
+
+@media (max-width: 360px) {
+	.detailsContainer {
+		flex-direction: column;
+		align-items: center;
+		gap: 1rem;
+
+		> span,
+		> div {
+			width: 90%;
 		}
 	}
 }

@@ -32,6 +32,11 @@ main {
 	> * {
 		margin: 2rem 0;
 	}
+
+	> h1,
+	> h2 {
+		text-align: center;
+	}
 }
 
 a {
@@ -41,4 +46,14 @@ a {
 h1 {
 	font-size: 3.2em;
 	line-height: 1.1;
+}
+
+@media (max-width: 768px) {
+	main {
+		width: 90%;
+
+		> * {
+			margin: 1rem 0;
+		}
+	}
 }
